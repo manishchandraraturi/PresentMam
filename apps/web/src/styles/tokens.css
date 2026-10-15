@@ -1,0 +1,112 @@
+/* PresentMam Design Tokens (DESIGN.md section 3, 6, 7) */
+
+/* Core palette (named) */
+:root {
+  --lagoon: #0A2A33;
+  --lagoon-raised: #0F3A45;
+  --sea-glass: #EDF5F6;
+  --tangerine: #FF8A3D;
+  --bubblegum: #FF6FB1;
+  --cobalt: #4C7DFF;
+  --mint: #36E0B0;
+  --sunny: #FFD23F;
+  --cherry: #FF5A5F;
+
+  /* Aliases for palette */
+  --palette-lagoon: var(--lagoon);
+  --palette-lagoon-raised: var(--lagoon-raised);
+  --palette-sea-glass: var(--sea-glass);
+  --palette-tangerine: var(--tangerine);
+  --palette-bubblegum: var(--bubblegum);
+  --palette-cobalt: var(--cobalt);
+  --palette-mint: var(--mint);
+  --palette-sunny: var(--sunny);
+  --palette-cherry: var(--cherry);
+
+  /* Radius tokens (DESIGN.md section 6) */
+  --radius-hero: 36px;
+  --radius-card: 24px;
+  --radius-input: 16px;
+  --radius-sheet: 28px;
+
+  /* Motion tokens (DESIGN.md section 7) */
+  --ease-default: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-press: 150ms;
+  --duration-state: 250ms;
+  --duration-sheet: 400ms;
+  --duration-ring: 800ms;
+
+  /* Default theme tokens (starts in dark per student default) */
+  --bg: #0A2A33;
+  --bg-raised: #0F3A45;
+  --glass: rgba(255,255,255,0.07);
+  --glass-strong: rgba(255,255,255,0.12);
+  --glass-border: rgba(255,255,255,0.16);
+  --glass-highlight: rgba(255,255,255,0.22);
+  --text: #F2FBFA;
+  --text-2: #9FC2C6;
+  --text-3: #6C9097;
+  --action: #FF8A3D;
+  --on-action: #0A2A33;
+  --fun: #FF6FB1;
+  --info: #4C7DFF;
+  --ok: #36E0B0;
+  --warn: #FFD23F;
+  --bad: #FF5A5F;
+  --shadow-float: 0 24px 60px -24px rgba(0,0,0,0.55);
+}
+
+/* Dark theme tokens */
+:root[data-theme="dark"] {
+  --bg: #0A2A33;
+  --bg-raised: #0F3A45;
+  --glass: rgba(255,255,255,0.07);
+  --glass-strong: rgba(255,255,255,0.12);
+  --glass-border: rgba(255,255,255,0.16);
+  --glass-highlight: rgba(255,255,255,0.22);   /* inner top edge */
+  --text: #F2FBFA;
+  --text-2: #9FC2C6;
+  --text-3: #6C9097;
+  --action: #FF8A3D;  --on-action: #0A2A33;
+  --fun: #FF6FB1;     --info: #4C7DFF;
+  --ok: #36E0B0;      --warn: #FFD23F;   --bad: #FF5A5F;
+  --shadow-float: 0 24px 60px -24px rgba(0,0,0,0.55);
+}
+
+/* Light theme tokens */
+:root[data-theme="light"] {
+  --bg: #EDF5F6;
+  --bg-raised: #FFFFFF;
+  --glass: rgba(255,255,255,0.72);
+  --glass-strong: rgba(255,255,255,0.88);
+  --glass-border: rgba(10,42,51,0.10);
+  --glass-highlight: rgba(255,255,255,0.9);
+  --text: #0C2B33;
+  --text-2: #3F6269;
+  --text-3: #6B8A90;
+  --action: #0A2A33;  --on-action: #FF8A3D;  /* ink button with tangerine text */
+  --fun: #E0458F;     --info: #2F5FE0;
+  --ok: #0F9D75;      --warn: #B88400;   --bad: #D63C41;
+  --shadow-float: 0 18px 40px -22px rgba(10,42,51,0.35);
+}
+
+/* Glass recipe (floating layers and key student cards) */
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-float), inset 0 1px 0 var(--glass-highlight);
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  .glass { background: var(--bg-raised); }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: var(--bg-raised);
+  }
+}

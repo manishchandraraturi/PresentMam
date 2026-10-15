@@ -1,0 +1,44 @@
+@import "tailwindcss";
+@import "./tokens.css";
+
+@theme {
+  --font-display: var(--font-bricolage), sans-serif;
+  --font-sans: var(--font-figtree), sans-serif;
+
+  --color-bg: var(--bg);
+  --color-bg-raised: var(--bg-raised);
+  --color-text: var(--text);
+  --color-text-2: var(--text-2);
+  --color-text-3: var(--text-3);
+  --color-action: var(--action);
+  --color-on-action: var(--on-action);
+  --color-fun: var(--fun);
+  --color-info: var(--info);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --color-bad: var(--bad);
+
+  --color-lagoon: var(--lagoon);
+  --color-lagoon-raised: var(--lagoon-raised);
+  --color-sea-glass: var(--sea-glass);
+  --color-tangerine: var(--tangerine);
+  --color-bubblegum: var(--bubblegum);
+  --color-cobalt: var(--cobalt);
+  --color-mint: var(--mint);
+  --color-sunny: var(--sunny);
+  --color-cherry: var(--cherry);
+
+  --radius-hero: var(--radius-hero);
+  --radius-card: var(--radius-card);
+  --radius-input: var(--radius-input);
+  --radius-sheet: var(--radius-sheet);
+
+  --shadow-float: var(--shadow-float);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-figtree), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
