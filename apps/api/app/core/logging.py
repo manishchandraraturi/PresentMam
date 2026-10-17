@@ -18,10 +18,9 @@ def setup_logging(json_logs: bool = True) -> None:
         structlog.processors.UnicodeDecoder(),
     ]
 
-    if json_logs:
-        renderer = structlog.processors.JSONRenderer()
-    else:
-        renderer = structlog.dev.ConsoleRenderer()
+    renderer: Any = (
+        structlog.processors.JSONRenderer() if json_logs else structlog.dev.ConsoleRenderer()
+    )
 
     structlog.configure(
         processors=shared_processors

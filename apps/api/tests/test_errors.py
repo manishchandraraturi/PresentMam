@@ -112,7 +112,9 @@ async def test_custom_domain_error_policy_blocked(error_client: AsyncClient):
 
 @pytest.mark.asyncio
 async def test_validation_error_envelope(error_client: AsyncClient):
-    response = await error_client.post("/test-errors/validation", json={"name": "Alice", "age": "not-an-int"})
+    response = await error_client.post(
+        "/test-errors/validation", json={"name": "Alice", "age": "not-an-int"}
+    )
     assert response.status_code == 422
     data = response.json()
     assert "error" in data

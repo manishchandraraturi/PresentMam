@@ -64,7 +64,9 @@ class ValidationFailedError(AppError):
         message: str = "Validation failed",
         details: dict[str, Any] | None = None,
     ):
-        super().__init__(code="VALIDATION_FAILED", message=message, status_code=422, details=details)
+        super().__init__(
+            code="VALIDATION_FAILED", message=message, status_code=422, details=details
+        )
 
 
 class PolicyBlockedError(AppError):
@@ -82,7 +84,9 @@ class EvidenceUnreadableError(AppError):
         message: str = "We couldn't read this file. Try a clearer photo or a PDF.",
         details: dict[str, Any] | None = None,
     ):
-        super().__init__(code="EVIDENCE_UNREADABLE", message=message, status_code=422, details=details)
+        super().__init__(
+            code="EVIDENCE_UNREADABLE", message=message, status_code=422, details=details
+        )
 
 
 class DuplicateSubmissionError(AppError):
@@ -91,7 +95,9 @@ class DuplicateSubmissionError(AppError):
         message: str = "Duplicate submission detected",
         details: dict[str, Any] | None = None,
     ):
-        super().__init__(code="DUPLICATE_SUBMISSION", message=message, status_code=409, details=details)
+        super().__init__(
+            code="DUPLICATE_SUBMISSION", message=message, status_code=409, details=details
+        )
 
 
 class ConsentRequiredError(AppError):
@@ -109,7 +115,9 @@ class ProviderUnavailableError(AppError):
         message: str = "External provider unavailable",
         details: dict[str, Any] | None = None,
     ):
-        super().__init__(code="PROVIDER_UNAVAILABLE", message=message, status_code=503, details=details)
+        super().__init__(
+            code="PROVIDER_UNAVAILABLE", message=message, status_code=503, details=details
+        )
 
 
 class ApplyFailedError(AppError):

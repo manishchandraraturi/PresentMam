@@ -1,0 +1,16 @@
+# Backend production dependencies pinned for PresentMam API
+fastapi==0.141.1
+uvicorn==0.52.4
+pydantic==2.13.4
+pydantic-settings==2.15.0
+structlog==26.1.0
+sqlalchemy==2.0.52
+asyncpg==0.32.0
+alembic==1.20.0
+httpx==0.28.1
+
+# Dev / Testing / Quality dependencies
+pytest==9.1.1
+pytest-asyncio==1.4.0
+ruff==0.17.0
+mypy==2.4.0

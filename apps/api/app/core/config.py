@@ -11,6 +11,7 @@ class Settings(BaseSettings):
     app_name: str = "PresentMam API"
     env: str = "dev"
     api_prefix: str = "/api/v1"
+    database_url: str | None = None
 
 
 settings = Settings()

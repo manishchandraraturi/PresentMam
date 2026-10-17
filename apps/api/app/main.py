@@ -1,3 +1,6 @@
+from collections.abc import AsyncGenerator
+from contextlib import asynccontextmanager
+
 import structlog
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
@@ -8,9 +11,21 @@ from app.core.config import settings
 from app.core.errors import AppError, ErrorDetail, ErrorEnvelope
 from app.core.logging import setup_logging
 from app.core.middleware import RequestIdMiddleware
+from app.db.session import close_db, init_db
 from app.routers import health
 
 logger = structlog.get_logger()
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
+    """Manage application startup and shutdown lifecycle."""
+    try:
+        if settings.database_url:
+            await init_db(settings.database_url)
+        yield
+    finally:
+        await close_db()
 
 
 def create_app() -> FastAPI:
@@ -19,6 +34,7 @@ def create_app() -> FastAPI:
 
     app = FastAPI(
         title=settings.app_name,
+        lifespan=lifespan,
         docs_url=f"{settings.api_prefix}/docs" if settings.env != "prod" else None,
         redoc_url=None,
     )
@@ -53,7 +69,9 @@ def create_app() -> FastAPI:
         )
 
     @app.exception_handler(RequestValidationError)
-    async def validation_error_handler(request: Request, exc: RequestValidationError) -> JSONResponse:
+    async def validation_error_handler(
+        request: Request, exc: RequestValidationError
+    ) -> JSONResponse:
         request_id = getattr(request.state, "request_id", "unknown")
         details = {"errors": exc.errors()}
         logger.warning(
