@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 
+import { ThemeToggle } from "@/components/theme-toggle";
+
 interface HealthResponse {
   status: string;
   [key: string]: unknown;
@@ -114,7 +116,10 @@ export default function HomePage() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-6 text-center">
-      <div className="glass max-w-lg rounded-3xl p-8 shadow-float">
+      <header className="mb-4 flex w-full max-w-lg justify-end">
+        <ThemeToggle />
+      </header>
+      <div className="glass w-full max-w-lg rounded-3xl p-8 shadow-float">
         <h1 className="font-display text-4xl font-bold tracking-tight text-text">
           PresentMam
         </h1>

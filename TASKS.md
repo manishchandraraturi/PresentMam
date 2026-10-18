@@ -18,7 +18,7 @@ Goal: an empty but fully wired project that builds, lints, tests, and deploys a 
 - [ ] P0-T5 Set up SQLAlchemy async, Alembic, and a first empty migration; connect to the database.
 - [ ] P0-T6 Set up lint and type tools (ruff, mypy, eslint, tsc) and test runners (pytest, vitest or jest). Add one passing test in each app.
 - [ ] P0-T7 GitHub Actions: lint, type-check, test for both apps.
-- [ ] P0-T8 Deploy hello-world: web to Vercel, api to Render/Railway; web calls `/healthz` and shows the result.
+- [x] P0-T8 Deploy hello-world: web to Vercel, api to Render/Railway; web calls `/healthz` and shows the result.
 - [ ] P0-T9 Theme system: next-themes with `data-theme`, a ThemeToggle, and a style-guide page rendering colours, type scale, glass samples, buttons (dev only).
 
 **Exit check:** CI green; both apps deployed; style-guide page matches DESIGN.md in both themes at 375 px and 1440 px; no secrets in repo.

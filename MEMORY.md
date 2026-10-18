@@ -30,8 +30,8 @@ This file is the project's long-term memory for AI agents. It exists so a fresh 
 | 6 | Polish, pilot readiness, demo | NOT STARTED | n/a |
 | 7 | Optional extensions | NOT STARTED | n/a |
 
-**Current phase:** 0 (not started)
-**Next task:** P0-T1
+**Current phase:** 0 (in progress)
+**Next task:** P0-T9
 
 ## 3. Locked decisions
 | ID | Decision | Why |
@@ -91,7 +91,12 @@ Do not answer these by guessing. Record the answer here when the human provides 
 ## 6. Verified facts (agent adds as discovered)
 Record environment facts after verifying them: installed versions, working commands, URLs of deployed apps (non-secret), table counts after seeding, etc.
 
-(none yet)
+- **P0-T8 Deployed Backend (Render):** `https://presentmam-api.onrender.com`
+  - Verified `/healthz` endpoint returned HTTP 200 with `{"status":"ok"}`.
+  - Render application logs showed `GET /healthz` returning HTTP 200.
+- **P0-T8 Deployed Frontend (Vercel):** `https://present-mam.vercel.app`
+  - Connected to backend `/healthz` via `NEXT_PUBLIC_API_BASE_URL`.
+  - Browser verification confirmed UI rendering: `API Healthy (status: ok)`.
 
 ## 7. Known issues and gotchas
 Record problems that took more than two attempts to solve, and the cause.
